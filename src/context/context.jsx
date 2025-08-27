@@ -1,6 +1,5 @@
-import {createContext} from 'react';
+import {createContext, useState} from 'react';
 import runChat from '../config/gemini';
-import { useState } from 'react';
 
 export const Context = createContext(null);
 
@@ -23,7 +22,6 @@ const ContextProvider = (props) =>{
     const newChat= ()=>{
         setLoading(false);
         setShowResult(false);
-
     }
 
     const onSent = async (prompt) =>{
@@ -42,7 +40,7 @@ const ContextProvider = (props) =>{
         let responseArray = response.split("**");
         let newResponse="";
         for(let i=0;i<responseArray.length; i++){
-            if(i===0 || i%2 !==1){
+            if(i===0 || i%2 === 0){
                 newResponse += responseArray[i];
             }else{
                 newResponse += "<b>" + responseArray[i] + "</b>";

@@ -24,16 +24,16 @@ const Sidebar = () => {
             {extended?<p>New Chat</p>:null}
          </div>
          {extended?
-             <div className="recent">
-            <p className="recent-title">Recent</p>
-            {prevPrompt.map((item, index)=>{
+            <div className="recent">
+             <p className="recent-title">Recent</p>
+             {prevPrompt.map((item, index)=>{
                  return(
                      <div onClick={()=>loadPrompt(item)} className="recent-entry">
                      <img src={assets.message_icon} alt=""></img>
                      <p>{item.slice(0,18)}...</p>
-            </div>
-                 )
-            })}
+                     </div>
+                  )
+              })}
          </div>
          :null
          }
